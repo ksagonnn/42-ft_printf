@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_char.c                                   :+:      :+:    :+:   */
+/*   ft_printf_hex.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksagon <ksagon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ksagon <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/01 15:53:12 by ksagon            #+#    #+#             */
-/*   Updated: 2022/01/26 16:38:04 by ksagon           ###   ########.fr       */
+/*   Created: 2022/01/20 11:32:33 by ksagon            #+#    #+#             */
+/*   Updated: 2022/01/20 13:42:37 by ksagon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// c
-
-#include "ft_printf.h"
-
-int	ft_printf_char(int c, int *rcount)
+int	ft_printf_hex(int nb, char *base)
 {
-	ft_putchar_fd(c, 1);
-	*rcount += 1;
-	return (*rcount);
+	if (nb < '10')
+		write (1, &nb, 1);
+	if (nb < '10')
 }

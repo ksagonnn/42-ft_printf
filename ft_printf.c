@@ -3,26 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksagon <ksagon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ksagon <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 15:53:12 by ksagon            #+#    #+#             */
-/*   Updated: 2022/01/19 13:57:28 by ksagon           ###   ########.fr       */
+/*   Updated: 2022/01/26 15:55:16 by ksagon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h
-"
+#include "ft_printf.h"
+
+int	ft_printf(const char *input, ...)
+{
+}
+
 char	detect_arg(const char *str, int i)
 {
 		if (str[i] == '%' && (str[i + 1] == 'c' || str[i] == 's' 
 		|| str[i] == 'p' || str[i] == 'd' || str[i] == 'i' 
 		|| str[i] == 'u' || str[i] == 'x' || str[i] == 'X' 
 		|| str[i] == '%'))
-	return (str[i + 1]);
-return (0);
+			return (str[i + 1]);
+		else if
+			return (0);
 }
-
-int	ft_printf(const char *input, ...)
 
 int ft_printf_args(char convert, va_list args)
 {

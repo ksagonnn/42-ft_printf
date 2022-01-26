@@ -1,22 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_char.c                                   :+:      :+:    :+:   */
+/*   ft_printf_ptr.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksagon <ksagon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ksagon <marvin@42lausanne.ch>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/01 15:53:12 by ksagon            #+#    #+#             */
-/*   Updated: 2022/01/26 16:38:04 by ksagon           ###   ########.fr       */
+/*   Created: 2022/01/20 11:33:29 by ksagon            #+#    #+#             */
+/*   Updated: 2022/01/20 11:33:31 by ksagon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// c
 
-#include "ft_printf.h"
-
-int	ft_printf_char(int c, int *rcount)
-{
-	ft_putchar_fd(c, 1);
-	*rcount += 1;
-	return (*rcount);
-}
