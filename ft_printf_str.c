@@ -12,10 +12,17 @@
 
 #include "ft_printf.h"
 
-int	ft_printf_str(char *str)
+int	ft_printf_str(char *str, int *rcount)
 {
-	if (c == NULL)
-		return (ft_putstr_fd(NULL));
+	if (str == NULL)
+	{
+		ft_putstr_fd("(null)", 1);
+		*rcount += ft_strlen("(null)");
+	}
 	else if
-		return (ft_putstr_fd(str));
+	{
+		ft_putstr_fd(str, 1);
+		*rcount += ft_strlen(str);
+	}
+	return (*rcount);
 }

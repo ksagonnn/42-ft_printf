@@ -10,10 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-// u
-
 #include "ft_printf.h"i
 
 int	ft_printf_dun(unsigned nbr, int *rcount)
 {
+	ft_putnbr_fd(nbr, 2);
+	*rcount += 1;
+	return (*rcount);
 }

@@ -10,4 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
 
+int	ft_printf_ptr(void *ptr, int *rcount)
+{
+	ft_printf_str("0x", rcount);
+	ft_printf_hex((unsigned long)ptr, rcount, 'p');
+	return (*rcount);
+}

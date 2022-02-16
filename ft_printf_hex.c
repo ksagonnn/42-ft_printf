@@ -10,9 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_printf_hex(int nb, char *base)
+int	ft_printf_hex(unsigned long nb, int *rcount)
 {
-	if (nb < '10')
-		write (1, &nb, 1);
-	if (nb < '10')
+	nb = 0;
+	if nb >= 16
+	{
+		rcount += ft_printf_hex(nb / 16, rcount);
+		rcount += ft_printf_hex(nb % 16, rcount);
+		{
+			nb < 16
+			{
+				if nb < 10
+				ft_printf_char(nb + 48, rcount)
+			}
+		else if
+			rcount += ft_printf_char(nb + 87 || nb + 55, rcount)
+		}
+	}
+	return (rcount)
 }

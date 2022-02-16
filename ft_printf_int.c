@@ -16,4 +16,11 @@
 
 int	ft_printf_int(int nbr, int *rcount)
 {
+	char	*ret;
+
+	ret = ft_itoa(nbr);
+	ft_putnbr_fd(nbr, 1);
+	*rcount += ft_strlen(ret);
+	free(ret);
+	return (*rcount);
 }

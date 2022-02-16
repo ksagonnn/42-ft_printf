@@ -3,47 +3,50 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ksagon <marvin@42lausanne.ch>              +#+  +:+       +#+        */
+/*   By: ksagon <ksagon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 15:53:12 by ksagon            #+#    #+#             */
-/*   Updated: 2022/01/26 15:55:16 by ksagon           ###   ########.fr       */
+/*   Updated: 2022/01/19 13:57:28 by ksagon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+static void	ft_printf_args(char convert, va_list args, int *rcount)
+{
+	if (convert == 'c')
+		ft_printf_char(va_arg(args, int), rcount);
+	else if (convert == 's')
+		ft_printf_str(va_arg(args, char *), rcount);
+	else if (convert == 'p')
+		ft_printf_ptr(va_arg(args, void *), rcount);
+	else if (convert == 'd' || convert == 'i')
+		ft_printf_int(va_arg(args, int), rcount);
+	else if (convert == 'u')
+		ft_printf_dun(va_arg(args, unsigned int), rcount);
+	else if (convert == 'x' || convert == 'X')
+		ft_printf_hex(va_arg(args, int), rcount, convert);
+	else if (convert == '%')
+		ft_printf_percent('%', rcount);
+}
+
 int	ft_printf(const char *input, ...)
 {
-}
-
-char	detect_arg(const char *str, int i)
-{
-		if (str[i] == '%' && (str[i + 1] == 'c' || str[i] == 's' 
-		|| str[i] == 'p' || str[i] == 'd' || str[i] == 'i' 
-		|| str[i] == 'u' || str[i] == 'x' || str[i] == 'X' 
-		|| str[i] == '%'))
-			return (str[i + 1]);
-		else if
-			return (0);
-}
-
-int ft_printf_args(char convert, va_list args)
-{
-	int i;
+	int	i;
+	int	rcount;
+	va_list	args;
 
 	i = 0;
-	if (convert == 'c')
-		i = ft_printf_char(va_arg(args, char);
-	else if (convert == 's')
-		i = ft_putstr_fd(va_arg(args, int),1);
-	else if (convert == 'p')
-		i = ft_printf_ptr(va_arg(args, unsigned long));
-	else if (convert == 'd' || convert == 'i')
-		i = ft_printf_int(va_arg(args, int));
-	else if (convert == 'u')
-		i = ft_printf_dun(va_arg(args, unsigned int));
-	else if (convert == 'x' || convert == 'X')
-		i = ft_printf_hex(va_arg(args, unsigned long));
-	else if (convert == '%')
-		i = ft_printf_percent('%');
+	rcount = 0;
+	va_start(args, input);
+	while (input[i])
+	{
+		if (input[i] != '%')
+			ft_printf_char(input[i], &rcount);
+		else if (input[i] == '%' && input[i + 1])
+			ft_printf_args(input[i++], args, &rcount);
+		i++;
+	}
+	va_end(args);
+	return (rcount);
 }
